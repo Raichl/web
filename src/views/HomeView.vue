@@ -1,18 +1,21 @@
 <template>
   <div class="home">
     <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <button> 
+      <RouterLink to="/main">тык</RouterLink>
+    </button>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+
+import store from '@/store';
 
 export default {
-  name: 'HomeView',
-  components: {
-    HelloWorld
+  
+  mounted(){
+    store.commit('setNavbarVisible',true)
   }
 }
 </script>
+

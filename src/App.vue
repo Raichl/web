@@ -1,10 +1,68 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
+  <nav v-if="navbarVisible">
+    <div>
+      <router-link to="/">Logo</router-link>
+    </div>
+
+    <div class="dropmenu">
+      <button>кнопка один</button>
+      <div class="dropmenu-content">
+        <li>кнопка 1</li>
+        <li>кнопка 2</li>
+        <li>кнопка 3</li>
+      </div>
+    </div>
+    <div class="dropmenu">
+      <button>кнопка два</button>
+      <div class="dropmenu-content">
+        <li>кнопка 1</li>
+        <li>кнопка 2</li>
+        <li>кнопка 3</li>
+      </div>
+    </div>
+    <div class="dropmenu">
+      <button>кнопка три</button>
+      <div class="dropmenu-content">
+        <li>кнопка 1</li>
+        <li>кнопка 2</li>
+        <li>кнопка 3</li>
+      </div>
+    </div>
+    <div class="dropmenu">
+      <button>кнопка четыре</button>
+      <div class="dropmenu-content">
+        <li>кнопка 1</li>
+        <li>кнопка 2</li>
+        <li>кнопка 3</li>
+      </div>
+    </div>
+    <div class="dropmenu">
+      <button>кнопка пять</button>
+      <div class="dropmenu-content">
+        <li>кнопка 1</li>
+        <li>кнопка 2</li>
+        <li>кнопка 3</li>
+      </div>
+    </div>
+
+    <router-link to="/login">Log in</router-link> |
+    <router-link to="/registr">Sing in</router-link>
   </nav>
   <router-view/>
 </template>
+
+<script lang="js">
+import store from './store';
+
+
+export default {
+  computed:{
+    navbarVisible(){
+      return store.state.navbarVisible
+    }
+  }
+}
+</script>
 
 <style>
 #app {
@@ -17,6 +75,17 @@
 
 nav {
   padding: 30px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.dropmenu-content{
+  display: none;
+  position: absolute;
+}
+
+.dropmenu:hover > .dropmenu-content{
+  display: block;
 }
 
 nav a {
